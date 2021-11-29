@@ -1,0 +1,29 @@
+   PROCEDURE dot_product(a:ARRAY_OF INTEGER,b:ARRAY_OF INTEGER,VAR ps:FLOAT)
+    BEGIN
+        FOR i FROM 0 TO a.length-1 STEP 1  DO
+            ps:= ps + a[i]*b[i];
+        END_FOR
+    END
+ALGORITHM scalar_product
+    VAR
+        V1,V2:ARRAY_OF INTEGER[3]
+    BEGIN
+        // read both vecter
+        Write("Donner les 3 composantes du 1 er vecteur");
+        FOR i FROM 0 TO V1.length-1 STEP 1  DO
+            Write("Composante", i);
+            Read(V1[i])
+        END_FOR
+        Write("Donner les 3 composantes du 2 er vecteur");
+        FOR i FROM 0 TO V2.length-1 STEP 1  DO
+            Write("Composante", i);
+            Read(V2[i])
+        END_FOR
+        // Call the PROCEDURE
+        dot_product(V1, V2, ps)
+        IF (ps = 0) THEN
+            Write("The dot product of the vectors is zero. They are orthogonal.")
+        ELSE
+            Write("The dot product of the vectors is orthogonal.")
+        END_IF    
+    END
